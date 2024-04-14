@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./styles.css">
+	<title>Atividade 3</title>
+</head>
+<body>
+	<div class="hero">
+		<label for="valor">Valor</label>
+		<input type="text" name="valor" id="valor">
+		<form class="pay_method">
+			<div class="radios">
+				<span><input type="radio" name="forma" value="pix" checked> Pix</span>
+				<span><input type="radio" name="forma" value="cc"> Cartão de Crédito</span>
+			</div>
+			<button id="infm_dados">Informar dados</button>
+		</form>
+		<form class="pix_payment">
+			<div class="pix_box">
+				<h3>PIX</h3>
+				<label for="cpf">CPF:</label>
+				<input type="text" name="cpf" id="cpf">
+			</div>
+		</form>
+		<form class="cc_payment">
+			<div class="cc_box">
+				<h3>CARTÃO DE CRÉDITO</h3>
+				<div class="form_entry">
+					<label for="num">Número</label>
+					<input type="text" name="num" id="num">
+					<img id="bandeira" src="">
+				</div>
+				<div class="form_entry">
+					<label for="titular">Titular</label>
+					<input type="text" name="titular" id="titular">
+				</div>
+				<div class="form_entry">
+					<label for="CDS">Cod. Segurança</label>
+					<input type="text" name="CDS" id="CDS">
+				</div>
+				<div class="form_entry">
+					<label for="vencimento">vencimento</label>
+					<input type="text" name="vencimento" id="vencimento">
+				</div>
+				<div class="form_entry">
+					<label for="Parcelas">parcelas</label>
+					<select name="parcelas" id="parcelas">
+						<option value=1>1X</option>
+						<option value=2>2X</option>
+						<option value=3>3X</option>
+						<option value=4>4X</option>
+						<option value=5>5X</option>
+					</select>
+				</div>
+				<div class="options">
+					<span>
+						1x R$ <span id="1xpay" class="no_fee"></span>
+					</span>
+					<span>
+						2x R$ <span id="2xpay" class="no_fee"></span>
+					</span>
+					<span>
+						3x R$ <span id="3xpay" class="no_fee"></span>
+					</span>
+					<span>
+						4x R$ <span id="4xpay"></span>
+					</span>
+					<span>
+						5x R$ <span id="5xpay"></span>
+					</span>
+				</div>
+			</div>
+		</form>
+		<div class="result">
+			<span>
+				Total: R$ <span id="total">123.45</span>
+			</span>
+			<button id="pagar">Pagar</button>
+		</div>
+	</div>
+<script type="text/javascript" src="./app.js"></script>
+</body>
+</html>

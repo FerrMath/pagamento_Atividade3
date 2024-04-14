@@ -1,0 +1,11 @@
+/*TODO criar o icone baseado no número inicial do cartão*/
+
+.pix_payment,
+.cc_payment {
+	display: none;
+}
+
+.pix_payment.show,
+.cc_payment.show {
+	display: block;
+}
