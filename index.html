@@ -1,48 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="./styles.css">
 	<title>Atividade 3</title>
 </head>
+
 <body>
 	<div class="hero">
-		<label for="valor">Valor</label>
-		<input type="text" name="valor" id="valor">
-		<form class="pay_method">
+		<div class="valor_container">
+			<label for="valor">Valor</label>
+			<input type="text" name="valor" id="valor">
+		</div>
+		<div class="pay_method">
 			<div class="radios">
 				<span><input type="radio" name="forma" value="pix" checked> Pix</span>
 				<span><input type="radio" name="forma" value="cc"> Cartão de Crédito</span>
 			</div>
-			<button id="infm_dados">Informar dados</button>
-		</form>
+			<button id="infm_dados" class="btn">Informar dados</button>
+		</div>
 		<form class="pix_payment">
 			<div class="pix_box">
 				<h3>PIX</h3>
 				<label for="cpf">CPF:</label>
-				<input type="text" name="cpf" id="cpf">
+				<input type="text" name="cpf" id="cpf" class="pix_input">
 			</div>
 		</form>
 		<form class="cc_payment">
 			<div class="cc_box">
 				<h3>CARTÃO DE CRÉDITO</h3>
-				<div class="form_entry">
+				<div class="form_entry cc_num">
 					<label for="num">Número</label>
-					<input type="text" name="num" id="num">
-					<img id="bandeira" src="">
+					<input type="text" name="num" id="num" class="cc_input">
 				</div>
+				<div id="bandeira" style="display: none;"></div>
 				<div class="form_entry">
 					<label for="titular">Titular</label>
-					<input type="text" name="titular" id="titular">
+					<input type="text" name="titular" id="titular" class="cc_input">
 				</div>
 				<div class="form_entry">
 					<label for="CDS">Cod. Segurança</label>
-					<input type="text" name="CDS" id="CDS">
+					<input type="text" name="CDS" id="CDS" class="cc_input">
 				</div>
 				<div class="form_entry">
 					<label for="vencimento">vencimento</label>
-					<input type="text" name="vencimento" id="vencimento">
+					<input type="text" name="vencimento" id="vencimento" class="cc_input">
 				</div>
 				<div class="form_entry">
 					<label for="Parcelas">parcelas</label>
@@ -74,12 +78,13 @@
 			</div>
 		</form>
 		<div class="result">
-			<span>
+			<span id="final_result">
 				Total: R$ <span id="total">123.45</span>
 			</span>
-			<button id="pagar">Pagar</button>
+			<button id="pagar" class="btn">Pagar</button>
 		</div>
 	</div>
-<script type="text/javascript" src="./app.js"></script>
+	<script type="text/javascript" src="./app.js"></script>
 </body>
+
 </html>

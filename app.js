@@ -9,6 +9,11 @@ const noFees = document.querySelectorAll(".no_fee")
 const fee4x = document.getElementById("4xpay")
 const fee5x = document.getElementById("5xpay")
 const parcelas = document.getElementById("parcelas")
+const bandeira = document.getElementById("bandeira")
+const cardErrorMsg = document.getElementById("invalid_cc_msg")
+const pagar = document.getElementById("pagar")
+const pixFormInputs = document.querySelectorAll(".pix_input")
+const ccFormInputs = document.querySelectorAll(".cc_input")
 
 let value;
 let selectedRadio = getSelectedRadio();
@@ -20,19 +25,56 @@ radios.forEach(e => {
 })
 
 ccNum.addEventListener('keyup', ()=> {
-    if (ccNum.value.length === 4) {
-        switch (ccNum.value) {
+    if (ccNum.value.length >= 4) {
+        let first4 = ccNum.value.substring(0, 4)
+        bandeira.style.display = "block"
+        switch (first4) {
             case "1234":
-                console.log("Visa")
+                bandeira.classList.remove("mastercard")
+                bandeira.classList.remove("invalid_cc")
+                bandeira.classList.add("visa")
                 break;
             case "4321":
-                console.log("Mastercard")
+                bandeira.classList.remove("visa")
+                bandeira.classList.remove("invalid_cc")
+                bandeira.classList.add("mastercard")
                 break;
             default:
-                console.log("Cartão inválido")
+                bandeira.classList.remove("visa")
+                bandeira.classList.remove("mastercard")
+                bandeira.classList.add("invalid_cc")
                 break;
         }
-    }})
+    }else {
+        bandeira.style.display = "none"
+    }
+})
+
+pagar.addEventListener('click', ()=> {
+    switch (selectedRadio.value) {
+        case "pix":
+            alert("Pagamento realizado com sucesso!\nDesconto de 10% aplicado!\nTotal: R$" + total.innerText)
+            break;
+        case "cc":
+            ccFormInputs.forEach(e => {
+                if (!e.value) {
+                    alert("Preencha todos os campos")
+                    return;
+                }
+            })
+
+            if (bandeira.classList.contains("invalid_cc")) {
+                alert("Número de cartão inválido")
+                return;
+            }
+
+            alert(`Pagamento realizado com sucesso!\nTotal: R$${total.innerText}`)
+            break;
+        default:
+            alert("Selecione uma forma de pagamento")
+            break;
+    }
+})
 
 parcelas.addEventListener('change', e => {
     let parce = parseInt(e.target.value)

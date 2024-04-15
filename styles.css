@@ -1,5 +1,38 @@
 /*TODO criar o icone baseado no número inicial do cartão*/
 
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.hero {
+	max-width: 750px;
+	width: 80%;
+	margin: 3rem auto;
+	border: 2px solid #ccc;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 0;
+}
+
+.btn {
+	background-color: #333;
+	border: none;
+	color: white;
+	padding: 1rem 2rem;
+	text-align: center;
+	margin: .3rem 1rem;
+	cursor: pointer;
+	border-radius: 5px;
+	transition: background-color .3s;
+}
+
+.btn:hover {
+	background-color: #555;
+}
+
 .pix_payment,
 .cc_payment {
 	display: none;
@@ -8,4 +41,111 @@
 .pix_payment.show,
 .cc_payment.show {
 	display: block;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	padding: 1rem;
+	margin-block-end: 1rem;
+}
+
+#bandeira {
+	display: inline-block;
+	min-width: 20px;
+	height: 20px;
+	position: relative;
+}
+
+.visa {
+	background-color: blue;
+	max-width: 20px;
+}
+
+.visa::after {
+	content: 'Visa';
+	position: absolute;
+	left: 150%;
+}
+
+.mastercard {
+	background-color: red;
+	max-width: 20px;
+}
+
+.mastercard::after {
+	content: 'Mastercard';
+	position: absolute;
+	left: 150%;
+}
+
+.invalid_cc {
+	width: 0;
+}
+
+.invalid_cc::after {
+	content: '* Cartão inválido';
+	position: absolute;
+	width: 300px;
+	left: 10%;
+	color: red;
+}
+
+.form_entry {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+.radios {
+	display: flex;
+	gap: 1rem;
+	margin-block: .5rem 1rem;
+}
+
+.pay_method {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-block-end: 1rem;
+}
+
+.pix_box,
+.cc_box {
+	display: flex;
+	flex-direction: column;
+	gap: .3rem;
+	flex-wrap: wrap;
+}
+
+.options {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: .3rem;
+}
+
+.form_entry label {
+	width: 15%;
+	text-align: left;
+}
+
+.form_entry input[type='text'],
+.form_entry select {
+	width: 75%;
+	padding: .2rem;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	align-self: flex-start;
+}
+
+.result {
+	display: flex;
+	flex-direction: column;
+}
+
+#final_result{
+	text-align: end;
+	font-size: 1.2rem;
+}
+
+#pagar {
+	align-self: flex-start;
+	padding: 1rem 2.3rem;
 }
